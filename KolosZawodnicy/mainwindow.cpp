@@ -39,7 +39,6 @@ void MainWindow::on_DodajZawodnika_clicked()
     }
 }
 
-
 void MainWindow::on_Podium_clicked()
 {
     QString pierwszy, drugie, trzecie;

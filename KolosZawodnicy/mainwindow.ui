@@ -21,7 +21,7 @@
        <widget class="QTableWidget" name="tableWidget"/>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="3,3,3">
+       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="3,0,3">
         <item>
          <widget class="QLabel" name="logo">
           <property name="minimumSize">
@@ -43,48 +43,6 @@
         </item>
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_3">
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout">
-            <item>
-             <layout class="QVBoxLayout" name="verticalLayout_2">
-              <item>
-               <widget class="QLabel" name="label_2">
-                <property name="text">
-                 <string>1</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_3">
-                <property name="text">
-                 <string>2</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_4">
-                <property name="text">
-                 <string>3</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <layout class="QVBoxLayout" name="verticalLayout">
-              <item>
-               <widget class="QLineEdit" name="pierwszeMiejsce"/>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="Drugiemiejsce"/>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="trzecieMiejsce"/>
-              </item>
-             </layout>
-            </item>
-           </layout>
-          </item>
           <item>
            <widget class="QPushButton" name="Podium">
             <property name="text">
