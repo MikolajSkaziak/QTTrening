@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include <QMessageBox>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -12,8 +12,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->logo->setScaledContents(true);
     ui->logo->setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Ignored);
-    QPixmap logo("logo2.jpg");
-    ui->logo->setPixmap(logo);
+    QPixmap pixmap("./logo123.jpg");
+    ui->logo->setPixmap(pixmap.scaled(ui->logo->size(),Qt::KeepAspectRatio, Qt::SmoothTransformation));
 }
 
 MainWindow::~MainWindow()
@@ -42,21 +42,34 @@ void MainWindow::on_DodajZawodnika_clicked()
 
 void MainWindow::on_Podium_clicked()
 {
-    QString pierwszy;
-    QString drugie;
-    QString trzecie;
-    int maxpkt=0;
+    QString pierwszy, drugie, trzecie;
+    int max1 = 0, max2 = 0, max3 = 0;
 
-    for (int var = 0; var < ui->tableWidget->rowCount(); ++var)
+    for (int i = 0; i < ui->tableWidget->rowCount(); ++i)
     {
-        if(ui->tableWidget->item(var,2)->text().toInt()>maxpkt)
-        {
-            pierwszy= ui->tableWidget->item(var,1)->text();
-            maxpkt=ui->tableWidget->item(var,2)->text().toInt();
-        }
+        int punkty = ui->tableWidget->item(i, 2)->text().toInt();
+        QString nazwisko = ui->tableWidget->item(i, 1)->text();
 
+        if (punkty > max1) {
+            max3 = max2;
+            trzecie = drugie;
+            max2 = max1;
+            drugie = pierwszy;
+            max1 = punkty;
+            pierwszy = nazwisko;
+        }
+        else if (punkty > max2) {
+            max3 = max2;
+            trzecie = drugie;
+            max2 = punkty;
+            drugie = nazwisko;
+        }
+        else if (punkty > max3) {
+            max3 = punkty;
+            trzecie = nazwisko;
+        }
     }
 
-
+    QMessageBox::information(this, "Podium", "1. " + pierwszy + "\n2. " + drugie + "\n3. " + trzecie);
 }
 
